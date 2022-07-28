@@ -115,19 +115,16 @@
 		1D1751DA2892BD6F00EBF738 /* OrderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1D17521F2892CFA100EBF738 /* Views */,
 				1D17521C2892C62D00EBF738 /* Controllers */,
 				1D1752152892C29900EBF738 /* Models */,
 				1D17520B2892C06A00EBF738 /* CategoryTableViewController.swift */,
 				1D1751DB2892BD6F00EBF738 /* AppDelegate.swift */,
 				1D1751DD2892BD6F00EBF738 /* SceneDelegate.swift */,
-				1D1751DF2892BD6F00EBF738 /* ViewController.swift */,
 				1D1751E12892BD6F00EBF738 /* Main.storyboard */,
 				1D1751E42892BD7000EBF738 /* Assets.xcassets */,
 				1D1751E62892BD7000EBF738 /* LaunchScreen.storyboard */,
 				1D1751E92892BD7000EBF738 /* Info.plist */,
-				1D17520D2892C07B00EBF738 /* MenuTableViewController.swift */,
-				1D17520F2892C08500EBF738 /* OrderTableViewController.swift */,
-				1D1752132892C24700EBF738 /* MenuItemViewController.swift */,
 			);
 			path = OrderApp;
 			sourceTree = "<group>";
@@ -165,6 +162,17 @@
 				1D17521D2892C64400EBF738 /* MenuController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1D17521F2892CFA100EBF738 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D1752132892C24700EBF738 /* MenuItemViewController.swift */,
+				1D17520F2892C08500EBF738 /* OrderTableViewController.swift */,
+				1D17520D2892C07B00EBF738 /* MenuTableViewController.swift */,
+				1D1751DF2892BD6F00EBF738 /* ViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
