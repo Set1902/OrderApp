@@ -9,7 +9,7 @@ import UIKit
 
 class OrderTableViewController: UITableViewController {
     
-    
+    var minutesToPrepareOrder = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +17,7 @@ class OrderTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         NotificationCenter.default.addObserver(tableView!, selector: #selector(UITableView.reloadData), name: MenuController.orderUpdatedNotification, object: nil)
     }
@@ -92,4 +92,37 @@ class OrderTableViewController: UITableViewController {
     }
     */
 
+    
+    
+    
+    @IBSegueAction func confirmOrder(_ coder: NSCoder) -> OrderConfirmationViewController? {
+        return OrderConfirmationViewController(coder: coder, minutesToPrepare: minutesToPrepareOrder)
+    }
+    
+    @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
+        
+    }
+    
+    
+    @IBAction func submitConfirmation(_ sender: Any) {
+        
+        
+        let orderTotal = MenuController.shared.order.menuItems.reduce(0.0) {
+            (result, menuItem) -> Double in
+            return result + menuItem.price
+        }
+        
+        let formattedTotal = MenuItem.priceFormatter.string(from: NSNumber(value: orderTotal)) ?? "\(orderTotal)"
+        let alertController = UIAlertController(title: "Confirm Order", message: "You are about to submit your order with a total of \(formattedTotal)", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
+            self.uploadOrder()
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
 }
