@@ -10,7 +10,7 @@ import UIKit
 class MenuTableViewController: UITableViewController {
     
     let category: String
-    let menuController = MenuController()
+    //let menuController = MenuController()
     var menuItems = [MenuItem]()
     let priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -39,7 +39,7 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        menuController.fetchMenuItems(forCategory: category)
+        MenuController.shared.fetchMenuItems(forCategory: category)
         { (result) in
             switch result {
             case .success(let menuItems):
@@ -145,7 +145,15 @@ class MenuTableViewController: UITableViewController {
     
     
     @IBSegueAction func showMenuItem(_ coder: NSCoder, sender: Any?) -> MenuItemViewController? {
-        return <#MenuItemViewController(coder: coder)#>
+        
+        guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
+            return nil
+        }
+        
+        
+        let menuItem = menuItems[indexPath.row]
+        
+        return MenuItemViewController(coder: coder, menuItem: menuItem)
     }
     
     

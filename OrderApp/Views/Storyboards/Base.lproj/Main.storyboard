@@ -97,7 +97,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KVJ-QT-YsE" kind="show" id="Bd7-bP-MSa"/>
+                                    <segue destination="KVJ-QT-YsE" kind="show" destinationCreationSelector="showMenuItem:sender:" id="Bd7-bP-MSa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

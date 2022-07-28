@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
     
-    let menuController = MenuController()
+    //let menuController = MenuController()
     var categories = [String]()
     
 
@@ -17,7 +17,7 @@ class CategoryTableViewController: UITableViewController {
         super.viewDidLoad()
 
         
-        menuController.fetchCategories { (result) in
+        MenuController.shared.fetchCategories { (result) in
             switch result {
             case .success(let categories):
                 self.updateUI(with: categories)
