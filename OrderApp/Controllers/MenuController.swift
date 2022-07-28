@@ -13,7 +13,13 @@ class MenuController {
     
     static let shared = MenuController()
     
+    var order = Order() {
+        didSet {
+            NotificationCenter.default.post(name: MenuController.orderUpdatedNotification, object: nil)
+        }
+    }
     
+    static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
     
     
     func fetchCategories(completion: @escaping ((Result<[String], Error>) -> Void)) {

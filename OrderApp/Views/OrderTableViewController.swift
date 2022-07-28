@@ -9,8 +9,7 @@ import UIKit
 
 class OrderTableViewController: UITableViewController {
     
-    var order = Order()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +18,8 @@ class OrderTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        NotificationCenter.default.addObserver(tableView!, selector: #selector(UITableView.reloadData), name: MenuController.orderUpdatedNotification, object: nil)
     }
 
     // MARK: - Table view data source
@@ -30,7 +31,7 @@ class OrderTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return order.menuItems.count
+        return MenuController.shared.order.menuItems.count
     }
 
     
@@ -43,7 +44,7 @@ class OrderTableViewController: UITableViewController {
     }
     
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-        let menuItem = order.menuItems[indexPath.row]
+        let menuItem = MenuController.shared.order.menuItems[indexPath.row]
         cell.textLabel?.text = menuItem.name
         cell.detailTextLabel?.text = MenuItem.priceFormatter.string(from: NSNumber(value: menuItem.price))
     }
