@@ -20,6 +20,8 @@ class OrderTableViewController: UITableViewController {
          self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         NotificationCenter.default.addObserver(tableView!, selector: #selector(UITableView.reloadData), name: MenuController.orderUpdatedNotification, object: nil)
+        
+        
     }
 
     // MARK: - Table view data source

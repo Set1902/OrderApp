@@ -159,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				1D17521D2892C64400EBF738 /* MenuController.swift */,
-				1D2864C32893153E001C988C /* OrderConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +172,7 @@
 				1D17520D2892C07B00EBF738 /* MenuTableViewController.swift */,
 				1D1751DF2892BD6F00EBF738 /* ViewController.swift */,
 				1D17520B2892C06A00EBF738 /* CategoryTableViewController.swift */,
+				1D2864C32893153E001C988C /* OrderConfirmationViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
