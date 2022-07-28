@@ -70,6 +70,12 @@ class CategoryTableViewController: UITableViewController {
         cell.textLabel?.text = category.capitalized
     }
     
+    
+   /* override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Show") as? MenuTableViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -119,7 +125,6 @@ class CategoryTableViewController: UITableViewController {
     
     
     
-    
     @IBSegueAction func showMenu(_ coder: NSCoder, sender: Any?) -> MenuTableViewController? {
         
         guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
@@ -133,6 +138,8 @@ class CategoryTableViewController: UITableViewController {
     
     
     
+    
+   
     
 
 }

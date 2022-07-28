@@ -49,7 +49,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Dfh-BD-bDt" kind="show" destinationCreationSelector="showMenu:" id="KeI-CE-56l"/>
+                                    <segue destination="Dfh-BD-bDt" kind="show" identifier="Show" destinationCreationSelector="showMenu:sender:" id="iHN-jC-dXo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
