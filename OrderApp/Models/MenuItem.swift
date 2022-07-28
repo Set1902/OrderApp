@@ -16,6 +16,14 @@ struct MenuItem: Codable {
     var category: String
     var image_url: URL
     
+    static let priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        
+        return formatter
+    }()
+    
    /* enum CodingKeys: String, CodingKey {
         case id
         case name

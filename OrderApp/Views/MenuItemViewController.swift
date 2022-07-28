@@ -13,6 +13,23 @@ class MenuItemViewController: UIViewController {
     let menuItem: MenuItem
     
     
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    @IBOutlet weak var detailTextLabel: UILabel!
+    
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    
+    
+    @IBOutlet weak var addToOrderButton: UIButton!
+    
+    
     init?(coder: NSCoder, menuItem: MenuItem) {
         self.menuItem = menuItem
         super.init(coder: coder)
@@ -28,8 +45,15 @@ class MenuItemViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateUI()
     }
     
+    
+    func updateUI() {
+        nameLabel.text = menuItem.name
+        priceLabel.text = MenuItem.priceFormatter.string(from: NSNumber(value: menuItem.price))
+        detailTextLabel.text = menuItem.description
+    }
 
     /*
     // MARK: - Navigation

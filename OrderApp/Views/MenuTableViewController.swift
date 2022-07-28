@@ -12,6 +12,7 @@ class MenuTableViewController: UITableViewController {
     let category: String
     //let menuController = MenuController()
     var menuItems = [MenuItem]()
+    
     let priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -19,7 +20,6 @@ class MenuTableViewController: UITableViewController {
         
         return formatter
     }()
-    
     init?(coder: NSCoder, category: String) {
         self.category = category
         super.init(coder: coder)
