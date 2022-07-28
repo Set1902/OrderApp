@@ -10,6 +10,8 @@ import UIKit
 class MenuTableViewController: UITableViewController {
     
     let category: String
+    let menuController = MenuController()
+    var menuItems = [MenuItem]()
     
     init?(coder: NSCoder, category: String) {
         self.category = category
@@ -24,12 +26,34 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        menuController.fetchMenuItems(forCategory: category)
+        { (result) in
+            switch result {
+            case .success(let menuItems):
+                self.updateUI(with: menuItems)
+            case .failure(let error):
+                self.displayError(error, title: "Failed to fetch menu items for \(self.category)")
+            }
+            
+        }
     }
+    
+    
+    func updateUI(with menuItems: [MenuItem]) {
+        DispatchQueue.main.async {
+            self.menuItems = menuItems
+            self.tableView.reloadData()
+        }
+    }
+    
+    func displayError(_ error: Error, title: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 
     // MARK: - Table view data source
 
