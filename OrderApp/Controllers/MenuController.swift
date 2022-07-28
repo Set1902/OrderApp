@@ -21,6 +21,19 @@ class MenuController {
         
         let task = URLSession.shared.dataTask(with: categoriesURL)
         { (data, response, error) in
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let categoriesResponse = try jsonDecoder.decode(CategoriesResponse.self, from: data)
+                    completion(.success(categoriesResponse.categories))
+                }
+                catch {
+                    completion(.failure(error))
+                }
+            } else if let error = error {
+                completion(.failure(error))
+            }
+            
             
         }
         task.resume()
@@ -51,7 +64,15 @@ class MenuController {
         
         let data = ["menuIDs": menuIDs]
         let jsonEncoder = JSONEncoder()
+        
         let jsonData = try? jsonEncoder.encode(data)
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { (sata, response, error) in
+            
+        }
+        task.resume()
         
     }
     
