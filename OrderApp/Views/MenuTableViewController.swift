@@ -12,6 +12,13 @@ class MenuTableViewController: UITableViewController {
     let category: String
     let menuController = MenuController()
     var menuItems = [MenuItem]()
+    let priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        
+        return formatter
+    }()
     
     init?(coder: NSCoder, category: String) {
         self.category = category
@@ -85,7 +92,7 @@ class MenuTableViewController: UITableViewController {
     func configure(_ cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let menuItem = menuItems[indexPath.row]
         cell.textLabel?.text = menuItem.name
-        cell.detailTextLabel?.text = "$\(menuItem.price)"
+        cell.detailTextLabel?.text = priceFormatter.string(from: NSNumber(value: menuItem.price))
     }
 
     /*
