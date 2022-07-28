@@ -148,6 +148,9 @@
                                 <rect key="frame" x="25.666666666666657" y="726.66666666666663" width="348.33333333333337" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add To Order" titleAlignment="center"/>
+                                <connections>
+                                    <action selector="orderButtonTapped:" destination="KVJ-QT-YsE" eventType="touchUpInside" id="e8L-Wn-2gL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s8x-Zv-8Qn"/>
