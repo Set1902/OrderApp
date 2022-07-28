@@ -48,23 +48,28 @@ class CategoryTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
 
-        // Configure the cell...
+        comfigureCell(cell, forCategoryAt: indexPath)
 
         return cell
     }
-    */
+    
+    func comfigureCell(_ cell: UITableViewCell, forCategoryAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        cell.textLabel?.text = category.capitalized
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
