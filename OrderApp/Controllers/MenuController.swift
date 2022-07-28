@@ -47,7 +47,18 @@ class MenuController {
         
         let task = URLSession.shared.dataTask(with: menuURL!)
         { (data, response, error) in
-            
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let menuResponse = try jsonDecoder.decode(MenuResponse.self, from: data)
+                    completion(.success(menuResponse.items))
+                }
+                catch {
+                    completion(.failure(error))
+                }
+            } else if let error = error {
+                completion(.failure(error))
+            }
         }
         task.resume()
         
@@ -69,8 +80,19 @@ class MenuController {
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request)
-        { (sata, response, error) in
-            
+        { (data, response, error) in
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let orderResponse = try jsonDecoder.decode(OrderResponse.self, from: data)
+                    completion(.success(orderResponse.prepTime))
+                }
+                catch {
+                    completion(.failure(error))
+                }
+            } else if let error = error {
+                completion(.failure(error))
+            }
         }
         task.resume()
         
