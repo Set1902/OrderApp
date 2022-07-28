@@ -125,4 +125,29 @@ class OrderTableViewController: UITableViewController {
     }
     
     
+    func uploadOrder() {
+        let menuIDs = MenuController.shared.order.menuItems.map { $0.id}
+        MenuController.shared.submitOrder(forMenuIDs: menuIDs) {
+            (result) in
+            switch result {
+            case .success(let minutesToPrepare):
+                DispatchQueue.main.async {
+                    self.minutesToPrepareOrder = minutesToPrepare
+                    self.performSegue(withIdentifier: "confirmOrder", sender: nil)
+                }
+            case .failure(let error):
+                self.displayError(error, title: "Order Submission Failed")
+            }
+            
+        }
+    }
+    
+    func displayError(_ error: Error, title: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
