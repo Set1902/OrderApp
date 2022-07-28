@@ -16,6 +16,9 @@
 		1D1751F32892BD7000EBF738 /* OrderAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1751F22892BD7000EBF738 /* OrderAppTests.swift */; };
 		1D1751FD2892BD7000EBF738 /* OrderAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1751FC2892BD7000EBF738 /* OrderAppUITests.swift */; };
 		1D1751FF2892BD7000EBF738 /* OrderAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1751FE2892BD7000EBF738 /* OrderAppUITestsLaunchTests.swift */; };
+		1D17520C2892C06A00EBF738 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17520B2892C06A00EBF738 /* CategoryTableViewController.swift */; };
+		1D17520E2892C07B00EBF738 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17520D2892C07B00EBF738 /* MenuTableViewController.swift */; };
+		1D1752102892C08500EBF738 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17520F2892C08500EBF738 /* OrderTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		1D1751F82892BD7000EBF738 /* OrderAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1751FC2892BD7000EBF738 /* OrderAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAppUITests.swift; sourceTree = "<group>"; };
 		1D1751FE2892BD7000EBF738 /* OrderAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1D17520B2892C06A00EBF738 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		1D17520D2892C07B00EBF738 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		1D17520F2892C08500EBF738 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		1D1751DA2892BD6F00EBF738 /* OrderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1D17520B2892C06A00EBF738 /* CategoryTableViewController.swift */,
 				1D1751DB2892BD6F00EBF738 /* AppDelegate.swift */,
 				1D1751DD2892BD6F00EBF738 /* SceneDelegate.swift */,
 				1D1751DF2892BD6F00EBF738 /* ViewController.swift */,
@@ -106,6 +113,8 @@
 				1D1751E42892BD7000EBF738 /* Assets.xcassets */,
 				1D1751E62892BD7000EBF738 /* LaunchScreen.storyboard */,
 				1D1751E92892BD7000EBF738 /* Info.plist */,
+				1D17520D2892C07B00EBF738 /* MenuTableViewController.swift */,
+				1D17520F2892C08500EBF738 /* OrderTableViewController.swift */,
 			);
 			path = OrderApp;
 			sourceTree = "<group>";
@@ -260,7 +269,10 @@
 			files = (
 				1D1751E02892BD6F00EBF738 /* ViewController.swift in Sources */,
 				1D1751DC2892BD6F00EBF738 /* AppDelegate.swift in Sources */,
+				1D17520E2892C07B00EBF738 /* MenuTableViewController.swift in Sources */,
 				1D1751DE2892BD6F00EBF738 /* SceneDelegate.swift in Sources */,
+				1D1752102892C08500EBF738 /* OrderTableViewController.swift in Sources */,
+				1D17520C2892C06A00EBF738 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
