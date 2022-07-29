@@ -43,6 +43,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let restoredOrder = userActivity.order {
             MenuController.shared.order = restoredOrder
         }
+        
+        guard
+            let restorationController = StateRestorationController(userActivity: userActivity),
+            let tabBarController = window?.rootViewController as? UITabBarController,
+            tabBarController.viewControllers?.count == 2,
+            let categoryTableViewController = (tabBarController.viewControllers?[0] as? UINavigationController)?.topViewController as? CategoryTableViewController
+        else {
+            return
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
