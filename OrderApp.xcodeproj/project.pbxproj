@@ -25,6 +25,7 @@
 		1D17521B2892C53400EBF738 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17521A2892C53400EBF738 /* Order.swift */; };
 		1D17521E2892C64400EBF738 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17521D2892C64400EBF738 /* MenuController.swift */; };
 		1D2864C42893153E001C988C /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2864C32893153E001C988C /* OrderConfirmationViewController.swift */; };
+		1DDFFF75289406A200441FBB /* Restoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDFFF74289406A200441FBB /* Restoration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		1D17521A2892C53400EBF738 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		1D17521D2892C64400EBF738 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		1D2864C32893153E001C988C /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
+		1DDFFF74289406A200441FBB /* Restoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restoration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				1D1752162892C2A700EBF738 /* MenuItem.swift */,
 				1D1752182892C40600EBF738 /* ResponseModels.swift */,
 				1D17521A2892C53400EBF738 /* Order.swift */,
+				1DDFFF74289406A200441FBB /* Restoration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				1D1752192892C40600EBF738 /* ResponseModels.swift in Sources */,
 				1D2864C42893153E001C988C /* OrderConfirmationViewController.swift in Sources */,
 				1D1752172892C2A700EBF738 /* MenuItem.swift in Sources */,
+				1DDFFF75289406A200441FBB /* Restoration.swift in Sources */,
 				1D1752102892C08500EBF738 /* OrderTableViewController.swift in Sources */,
 				1D17520C2892C06A00EBF738 /* CategoryTableViewController.swift in Sources */,
 			);

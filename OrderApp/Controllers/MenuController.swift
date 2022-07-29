@@ -14,9 +14,12 @@ class MenuController {
     
     static let shared = MenuController()
     
+    var userActivity = NSUserActivity(activityType: "com.example.OrderApp.order")
+    
     var order = Order() {
         didSet {
             NotificationCenter.default.post(name: MenuController.orderUpdatedNotification, object: nil)
+            userActivity.order = order
         }
     }
     
