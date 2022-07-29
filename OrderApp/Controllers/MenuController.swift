@@ -25,6 +25,18 @@ class MenuController {
     
     static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
     
+    func updateUserActivity(with controller: StateRestorationController) {
+        switch controller {
+        case .menu(let category):
+            userActivity.menuCategory = category
+        case .menuItemDetail(let menuItem):
+            userActivity.menuItem = menuItem
+        case .order, .categories:
+            break
+        }
+        userActivity.controllerIdentifier = controller.identifier
+    }
+    
     
     func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) {
