@@ -24,6 +24,32 @@ enum StateRestorationController {
         case .order: return Identifier.order
         }
     }
+    
+    init?(userActivity: NSUserActivity) {
+        guard let idetntifier = userActivity.controllerIdentifier else {
+            return nil
+        }
+        
+        switch idetntifier {
+        case .categories:
+            self = .categories
+        case .menu:
+            if let category = userActivity.menuCategory {
+                self = .menu(category: category)
+            } else {
+                return nil
+            }
+        case .menuItemDetail:
+            if let menuItem = userActivity.menuItem {
+                self = .menuItemDetail(menuItem)
+            } else {
+                return nil
+            }
+        case .order:
+            self = .order
+        }
+        
+    }
 }
 
 extension NSUserActivity {
