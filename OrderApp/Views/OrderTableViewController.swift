@@ -23,6 +23,13 @@ class OrderTableViewController: UITableViewController {
         
         
     }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MenuController.shared.updateUserActivity(with: .order)
+    }
 
     // MARK: - Table view data source
 

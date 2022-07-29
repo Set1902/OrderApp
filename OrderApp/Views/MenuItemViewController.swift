@@ -52,6 +52,12 @@ class MenuItemViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MenuController.shared.updateUserActivity(with: .menuItemDetail(menuItem))
+    }
+    
+    
     func updateUI() {
         nameLabel.text = menuItem.name
         priceLabel.text = MenuItem.priceFormatter.string(from: NSNumber(value: menuItem.price))
