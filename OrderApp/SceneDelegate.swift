@@ -52,6 +52,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else {
             return
         }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        switch restorationController {
+        case .categories:
+            break
+        case .order:
+            tabBarController.selectedIndex = 1
+        case .menu(let category):
+            let menuTableViewController = storyboard.instantiateViewController(identifier: restorationController.identifier.rawValue,creator: {
+                (coder) in
+                return MenuTableViewController(coder: coder, category: category)
+            })
+            categoryTableViewController.navigationController?.pushViewController(menuTableViewController, animated: true)
+        case .menuItemDetail(let menuItem):
+            let menuTableViewController = storyboard.instantiateViewController(identifier: StateRestorationController.Identifier.menu.rawValue, creator: {
+                (coder) in
+                return MenuTableViewController(coder: coder, category: menuItem.category)
+            })
+            
+            let menuDetailViewController = storyboard.instantiateViewController(identifier: restorationController.identifier.rawValue) { (coder) in
+                return MenuItemViewController(coder: coder, menuItem: menuItem)
+            }
+            categoryTableViewController.navigationController?.pushViewController(menuTableViewController, animated: true)
+            categoryTableViewController.navigationController?.pushViewController(menuDetailViewController, animated: true)
+        }
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
